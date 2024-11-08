@@ -5,7 +5,7 @@ from random import shuffle
 # Identify test cases which have the highest coverage
 
 # Input text file
-with open('C:/Users/theha/OneDrive/Documents/GitHub/Optimisation-Algorithms/CS547/newbigfaultmatrix.txt') as f: lines = f.readlines()
+with open('C:/Users/theha/OneDrive/Documents/repos/CS547/newbigfaultmatrix.txt') as f: lines = f.readlines()
 
 matrix = lines
 
@@ -24,31 +24,17 @@ def process_input(input:list):
         input[i] = (input[i][0:length]).split(',')
     return input
 
-# Calculate Average Percentage of faults detected, determining fitness of solution
-def fitness(suite:list):
-    faults = []
-    for test in suite:
-        faults.append(test)
-    n = len(suite) # Number of test cases
-    m = len(faults) # Number of faults
 
-    totalFaultsRevealed = 0
-    sumOfFirstReveals = 0
+# Finds smallest test set which maximises number of faults
+def size_fitness(suite:list):
+    fitness = 0
+    return fitness
 
-    max_length = max(len(faults[0]) for sublist in faults)
-    # For each fault in faults
-    for i in range(max_length):
-        for j,fault in enumerate(faults):
-            if i < len(fault):  
-                if fault[i] =='1':
-                    Tfi = j # TFi = Index of the first test case in testSuite that reveals fault
-                    sumOfFirstReveals += Tfi # sumOfFirstReveals += TFi
-                    break
+# Finds the test set which exectues in the shortest amount of time
+def time_fitness(suite:list):
+    fitness = 0
+    return fitness
 
-    totalFaultsRevealed = sumOfFirstReveals
-    # Calculate Average Percentage of faults detected 
-    APFD = 1 - (totalFaultsRevealed / (n * m) + (1 / (2 * n)))
-    return APFD
 
 # Generate random configuration of test case ordering
 def gen_individual(matrix:list):
