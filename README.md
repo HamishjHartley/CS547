@@ -2,4 +2,6 @@
 
 *CS547Assignment1Part2Group38*
 
-Repository for coursework.
+#### Setup
+1. Install pymoo, python multi-objective optimisation library: `pip install -U pymoo`
+
